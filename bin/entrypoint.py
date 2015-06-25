@@ -8,6 +8,10 @@
 #
 # http://opensource.org/licenses/mit-license.php
 #
+""" The entry point of the image.
+
+This script sets up a directory to make and run make command in it.
+"""
 import argparse
 import logging
 import subprocess
@@ -15,7 +19,12 @@ import sys
 
 
 def run(params, cwd):
+    """ Run make command.
 
+    Args:
+      params: parameters for make command.
+      cwd: direcory where make command run.
+    """
     cmd = " ".join(["make", ] + params)
     logging.info("Start a build process. (cmd=%s)", cmd)
 
@@ -30,13 +39,15 @@ def run(params, cwd):
 
 
 def main():
+    """ The main function.
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--cwd", default="/data/",
-        help="Specify a directory containing Makefile.")
+        help="specify a directory containing Makefile.")
     parser.add_argument(
         "params", default=["html"], nargs="*",
-        help="Specify options of make (default: html).")
+        help="specify options of make (default: html).")
 
     run(**vars(parser.parse_args()))
 
