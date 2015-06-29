@@ -13,7 +13,8 @@ MAINTAINER Junpei Kawamoto <kawamoto.junpei@gmail.com>
 # Install packages
 RUN apt-get update && \
     apt-get install -y make python-pip python-mysqldb python-networkx \
-                        python-numpy python-scipy python-matplotlib
+                        python-numpy python-scipy python-matplotlib \
+                        graphviz
 
 RUN pip install --upgrade sphinx
 
